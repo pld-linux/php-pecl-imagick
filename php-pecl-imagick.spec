@@ -1,8 +1,10 @@
 %define		_modname	imagick
+%define		_status		beta
+
 Summary:	PHP wrapper to the Image Magick Library
 Summary(pl):	PHP-owy wrapper do biblioteki Image Magick
 Name:		php-pecl-%{_modname}
-Version:	0.9.2
+Version:	0.9.3
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
@@ -26,6 +28,8 @@ suitable for Web applications. You can also resize, rotate, sharpen,
 color reduce, or add special effects to an image and save your
 completed work in the same or differing image format.
 
+This class has in PEAR status: %{_status}.
+
 %description -l pl
 ImageMagick to du¿y zestaw narzêdzi i bibliotek do odczytu, zapisu i
 modyfikowania obrazków w wielu formatach (ponad 68 g³ównych), w tym
@@ -33,6 +37,8 @@ popularnych, takich jak TIFF, JPEG, PNG, PDF, PhotoCD i GIF. Za pomoc±
 ImageMagick mo¿na dynamicznie tworzyæ obrazki, co jest przydatne w
 aplikacjach WWW. Mo¿na je tak¿e przeskalowywaæ, obracaæ, wyostrzaæ,
 zmniejszaæ ilo¶æ kolorów - w tym samym lub innym formacie.
+
+Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
