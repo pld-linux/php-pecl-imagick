@@ -43,7 +43,9 @@ phpize
 %configure \
 	--with-%{_modname}=/usr/X11R6/include/X11/
 
-%{__make} CPPFLAGS="-DHAVE_CONFIG_H -I/usr/X11R6/include/X11/"
+%{__make} \
+	CPPFLAGS="-DHAVE_CONFIG_H -I/usr/X11R6/include/X11/" \
+	CFLAGS_CLEAN="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
