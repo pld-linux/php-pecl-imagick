@@ -3,12 +3,12 @@
 Summary:	PHP wrapper to the Image Magick Library
 Summary(pl):	PHP-owy wrapper do biblioteki Image Magick
 Name:		php-pecl-%{_modname}
-Version:	0.9.5
+Version:	0.9.7
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	596cfc70bc5b4082947eed4c4886215f
+# Source0-md5:	cbe1d7acb4ff12b05e20cb532669cb7e
 URL:		http://pear.php.net/
 BuildRequires:	ImageMagick-devel
 BuildRequires:	php-devel
