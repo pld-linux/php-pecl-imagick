@@ -1,11 +1,12 @@
+%define		_modname	imagick
 Summary:	PHP wrapper to the Image Magick Library
 Summary(pl):	PHP-owy wrapper do biblioteki Image Magick
-Name:		php-pecl-imagick
+Name:		php-pecl-%{_modname}
 Version:	0.1.2
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/imagick-%{version}.tgz
+Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
 URL:		http://pear.php.net/
 BuildRequires:	ImageMagick-devel
 BuildRequires:	php-devel
@@ -37,10 +38,10 @@ zmniejszaæ ilo¶æ kolorów - w tym samym lub innym formacie.
 %setup -q -c
 
 %build
-cd imagick-%{version}
+cd %{_modname}-%{version}
 phpize
 %configure \
-	--with-imagick=/usr/X11R6/include/X11/
+	--with-%{_modname}=/usr/X11R6/include/X11/
 
 %{__make} CPPFLAGS="-DHAVE_CONFIG_H -I/usr/X11R6/include/X11/"
 
@@ -48,20 +49,20 @@ phpize
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{extensionsdir}
 
-install imagick-%{version}/modules/imagick.so $RPM_BUILD_ROOT%{extensionsdir}
+install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{extensionsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%{_sbindir}/php-module-install install imagick %{_sysconfdir}/php.ini
+%{_sbindir}/php-module-install install %{_modname} %{_sysconfdir}/php.ini
 
 %preun
 if [ "$1" = "0" ]; then
-	%{_sbindir}/php-module-install remove imagick %{_sysconfdir}/php.ini
+	%{_sbindir}/php-module-install remove %{_modname} %{_sysconfdir}/php.ini
 fi
 
 %files
 %defattr(644,root,root,755)
-%doc imagick-%{version}/{CREDITS,EXPERIMENTAL,*.php}
-%attr(755,root,root) %{extensionsdir}/imagick.so
+%doc %{_modname}-%{version}/{CREDITS,EXPERIMENTAL,*.php}
+%attr(755,root,root) %{extensionsdir}/%{_modname}.so
