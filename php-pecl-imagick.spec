@@ -9,7 +9,7 @@ License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	cbe1d7acb4ff12b05e20cb532669cb7e
-URL:		http://pear.php.net/
+URL:		http://pear.php.net/package/%{_pearname}/
 BuildRequires:	ImageMagick-devel
 BuildRequires:	php-devel
 Requires:	php-common
