@@ -1,0 +1,24 @@
+--- php-pecl-imagick-0.9.9/imagick-0.9.9/imagick.h.orig	2003-10-27 15:55:10.000000000 +0100
++++ php-pecl-imagick-0.9.9/imagick-0.9.9/imagick.h	2004-06-02 22:57:56.568302896 +0200
+@@ -22,7 +22,7 @@
+ #ifndef IMAGICKH
+ #define IMAGICKH
+ 
+-	#include <magick/api.h>
++	#include <wand/magick_wand.h>
+ 
+ 	#define IMAGICK_VERSION					"0.9.9"
+ 	#define IMAGICK_TURN_OFF_ERRORS_TO_STDERR		1
+--- php-pecl-imagick-0.9.9/imagick-0.9.9/config.m4.orig	2003-03-11 14:19:18.000000000 +0100
++++ php-pecl-imagick-0.9.9/imagick-0.9.9/config.m4	2004-06-02 23:02:06.506306544 +0200
+@@ -24,8 +24,8 @@
+      MAGICK_NAME="ImageMagick"
+      NEEDED_VERSION=5004005
+      NEEDED_VERSION_STRING=5.4.5
+-     CONFIG_NAME="Magick-config"
+-     LIB_NAME="Magick"
++     CONFIG_NAME="Wand-config"
++     LIB_NAME="Wand"
+      AC_DEFINE(IMAGICK_BACKEND, "ImageMagick", [ ])
+      AC_MSG_RESULT(Building with ImageMagick as backend)
+   fi
