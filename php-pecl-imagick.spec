@@ -28,7 +28,7 @@ suitable for Web applications. You can also resize, rotate, sharpen,
 color reduce, or add special effects to an image and save your
 completed work in the same or differing image format.
 
-This class has in PEAR status: %{_status}.
+In PECL status of this package is: %{_status}.
 
 %description -l pl
 ImageMagick to du¿y zestaw narzêdzi i bibliotek do odczytu, zapisu i
@@ -38,7 +38,7 @@ ImageMagick mo¿na dynamicznie tworzyæ obrazki, co jest przydatne w
 aplikacjach WWW. Mo¿na je tak¿e przeskalowywaæ, obracaæ, wyostrzaæ,
 zmniejszaæ ilo¶æ kolorów - w tym samym lub innym formacie.
 
-Ta klasa ma w PEAR status: %{_status}.
+To rozszerzenie ma w PECL status: %{_status}.
 
 %prep
 %setup -q -c
