@@ -15,8 +15,8 @@ URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.254
-Requires(triggerpostun):	sed >= 4.0
 %{?requires_php_extension}
+Requires(triggerpostun):	sed >= 4.0
 Requires:	%{_sysconfdir}/conf.d
 Obsoletes:	php-imagick
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
