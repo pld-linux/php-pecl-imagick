@@ -14,7 +14,7 @@ Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.254
+BuildRequires:	rpmbuild(macros) >= 1.322
 %{?requires_php_extension}
 Requires(triggerpostun):	sed >= 4.0
 Requires:	%{_sysconfdir}/conf.d
