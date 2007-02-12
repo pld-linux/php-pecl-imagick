@@ -1,7 +1,7 @@
 %define		_modname	imagick
 %define		_status		beta
 Summary:	PHP wrapper to the Image Magick Library
-Summary(pl.UTF-8):   PHP-owy wrapper do biblioteki Image Magick
+Summary(pl.UTF-8):	PHP-owy wrapper do biblioteki Image Magick
 Name:		php-pecl-%{_modname}
 Version:	0.9.11
 Release:	12
