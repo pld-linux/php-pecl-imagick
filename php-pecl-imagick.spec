@@ -4,7 +4,7 @@ Summary:	PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	PHP-owy wrapper do biblioteki Image Magick
 Name:		php-pecl-%{_modname}
 Version:	2.2.2
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
@@ -43,9 +43,9 @@ To rozszerzenie ma w PECL status: %{_status}.
 
 %prep
 %setup -q -c
+mv %{_modname}-%{version}/* .
 
 %build
-cd %{_modname}-%{version}
 phpize
 %configure
 
@@ -54,13 +54,14 @@ phpize
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
+install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir},%{_examplesdir}/%{name}-%{version}}
 
-install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+install modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
 cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
 ; Enable %{_modname} extension module
 extension=%{_modname}.so
 EOF
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -78,6 +79,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/examples
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
 %attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%{_examplesdir}/%{name}-%{version}
