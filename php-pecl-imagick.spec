@@ -8,7 +8,7 @@ Release:	3
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	29f99195c841ab4d36797bbc47b2b215
+# Source0-md5:	1493a21b37e209cc59764ac1ca2a1af9
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	php-devel >= 3:5.1.3
