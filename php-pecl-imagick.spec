@@ -1,14 +1,14 @@
-%define		_modname	imagick
-%define		_status		stable
-Summary:	%{_modname} - PHP wrapper to the Image Magick Library
-Summary(pl.UTF-8):	%{_modname} - PHP-owy wrapper do biblioteki Image Magick
-Name:		php-pecl-%{_modname}
+%define		modname	imagick
+%define		status		stable
+Summary:	%{modname} - PHP wrapper to the Image Magick Library
+Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
+Name:		php-pecl-%{modname}
 Version:	2.3.0
-Release:	2
+Release:	3
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	1493a21b37e209cc59764ac1ca2a1af9
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+# Source0-md5:	29f99195c841ab4d36797bbc47b2b215
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	php-devel >= 3:5.1.3
@@ -29,7 +29,7 @@ suitable for Web applications. You can also resize, rotate, sharpen,
 color reduce, or add special effects to an image and save your
 completed work in the same or differing image format.
 
-In PECL status of this package is: %{_status}.
+In PECL status of this package is: %{status}.
 
 %description -l pl.UTF-8
 ImageMagick to duży zestaw narzędzi i bibliotek do odczytu, zapisu i
@@ -39,11 +39,11 @@ ImageMagick można dynamicznie tworzyć obrazki, co jest przydatne w
 aplikacjach WWW. Można je także przeskalowywać, obracać, wyostrzać,
 zmniejszać ilość kolorów - w tym samym lub innym formacie.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
 %setup -q -c
-mv %{_modname}-%{version}/* .
+mv %{modname}-%{version}/* .
 
 %build
 phpize
@@ -55,11 +55,10 @@ phpize
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir},%{_examplesdir}/%{name}-%{version}}
-
-install modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+install -p modules/%{modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -75,11 +74,11 @@ if [ "$1" = 0 ]; then
 fi
 
 %triggerpostun -- %{name} < 0.9.11-2.1
-%{__sed} -i -e '/^extension[[:space:]]*=[[:space:]]*%{_modname}\.so/d' %{php_sysconfdir}/php.ini
+%{__sed} -i -e '/^extension[[:space:]]*=[[:space:]]*%{modname}\.so/d' %{php_sysconfdir}/php.ini
 
 %files
 %defattr(644,root,root,755)
 %doc CREDITS
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
 %{_examplesdir}/%{name}-%{version}
