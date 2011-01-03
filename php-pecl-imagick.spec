@@ -3,12 +3,12 @@
 Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		php-pecl-%{modname}
-Version:	2.3.0
-Release:	5
+Version:	3.0.1
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	1493a21b37e209cc59764ac1ca2a1af9
+# Source0-md5:	e2167713316639705202cf9b6cb1fdb1
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	php-devel >= 3:5.1.3
