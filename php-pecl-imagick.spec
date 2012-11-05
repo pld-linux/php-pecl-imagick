@@ -1,22 +1,22 @@
-%define		_beta	b1
-%define		modname	imagick
+%define		php_name	php%{?php_suffix}
+%define		modname		imagick
 %define		status		stable
 Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	3.1.0
-Release:	0.%{_beta}.1
+Release:	0.RC2.1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}%{_beta}.tgz
-# Source0-md5:	c3686da8851b66a52a24811fb479f3c8
+Source0:	http://pecl.php.net/get/%{modname}-%{version}RC2.tgz
+# Source0-md5:	de9cca809fb2db61f4cbd9fac4f69314
 URL:		http://pecl.php.net/package/imagick/
+BuildRequires:	%{php_name}-devel >= 3:5.1.3
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
-BuildRequires:	php-devel >= 3:5.1.3
 BuildRequires:	rpmbuild(macros) >= 1.344
 %{?requires_php_extension}
 Requires(triggerpostun):	sed >= 4.0
-Requires:	php-common >= 4:5.0.4
+Requires:	php(core) >= 5.0.4
 Provides:	php(imagick)
 Obsoletes:	php-imagick
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,8 +43,8 @@ zmniejszać ilość kolorów - w tym samym lub innym formacie.
 To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
-mv %{modname}-%{version}%{_beta}/* .
+%setup -qc
+mv %{modname}-%{version}RC2/* .
 
 %build
 phpize
