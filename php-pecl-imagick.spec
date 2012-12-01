@@ -18,6 +18,9 @@ BuildRequires:	rpmbuild(macros) >= 1.344
 %{?requires_php_extension}
 Requires(triggerpostun):	sed >= 4.0
 Requires:	php(core) >= 5.0.4
+Suggests:	ImageMagick-coder-jpeg
+Suggests:	ImageMagick-coder-png
+Suggests:	ImageMagick-coder-tiff
 Provides:	php(imagick)
 Obsoletes:	php-imagick
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
