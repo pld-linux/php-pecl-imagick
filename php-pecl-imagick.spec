@@ -15,7 +15,7 @@ Patch0:		ImageMagick-6.8.patch
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	%{php_name}-devel >= 3:5.1.3
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Requires(triggerpostun):	sed >= 4.0
 Requires:	php(core) >= 5.0.4
