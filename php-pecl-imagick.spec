@@ -11,7 +11,7 @@ Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	3f80e35c2434636cdb5df01b221b3ffa
 URL:		http://pecl.php.net/package/imagick/
-BuildRequires:	%{php_name}-devel >= 3:5.1.3
+BuildRequires:	%{php_name}-devel >= 4:5.3
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
