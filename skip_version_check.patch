@@ -1,0 +1,20 @@
+--- php55-pecl-imagick-3.4.2/./imagick.c~	2016-04-25 01:51:17.000000000 +0300
++++ php55-pecl-imagick-3.4.2/./imagick.c	2016-08-30 12:06:18.534956682 +0300
+@@ -3173,7 +3173,7 @@
+ 
+ PHP_INI_BEGIN()
+ 	STD_PHP_INI_ENTRY("imagick.locale_fix", "0", PHP_INI_ALL, OnUpdateBool, locale_fix, zend_imagick_globals, imagick_globals)
+-	STD_PHP_INI_ENTRY("imagick.skip_version_check", "0", PHP_INI_ALL, OnUpdateBool, skip_version_check, zend_imagick_globals, imagick_globals)
++	STD_PHP_INI_ENTRY("imagick.skip_version_check", "1", PHP_INI_ALL, OnUpdateBool, skip_version_check, zend_imagick_globals, imagick_globals)
+ 	STD_PHP_INI_ENTRY("imagick.progress_monitor", "0", PHP_INI_SYSTEM, OnUpdateBool, progress_monitor, zend_imagick_globals, imagick_globals)
+ PHP_INI_END()
+ 
+@@ -3181,7 +3181,7 @@
+ {
+ 	imagick_globals->locale_fix = 0;
+ 	imagick_globals->progress_monitor = 0;
+-	imagick_globals->skip_version_check = 0;
++	imagick_globals->skip_version_check = 1;
+ }
+ 
+ 

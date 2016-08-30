@@ -5,11 +5,12 @@ Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		%{php_name}-pecl-%{modname}
 Version:	3.4.2
-Release:	1
+Release:	2
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	3f80e35c2434636cdb5df01b221b3ffa
+Patch0:		skip_version_check.patch
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	%{php_name}-devel >= 4:5.3
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
@@ -45,8 +46,9 @@ zmniejszać ilość kolorów - w tym samym lub innym formacie.
 To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
+%setup -qc
 mv %{modname}-%{version}/* .
+%patch0 -p1
 
 %build
 phpize
