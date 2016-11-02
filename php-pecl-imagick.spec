@@ -18,6 +18,8 @@ Patch0:		skip_version_check.patch
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	%{php_name}-devel >= 4:5.3
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
+BuildRequires:	pkgconfig
+BuildRequires:	re2c
 BuildRequires:	rpmbuild(macros) >= 1.650
 %if %{with tests}
 BuildRequires:	%{php_name}-cli
