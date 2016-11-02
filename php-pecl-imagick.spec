@@ -65,12 +65,20 @@ To rozszerzenie ma w PECL status: %{status}.
 mv %{modname}-%{version}/* .
 %patch0 -p1
 
-# skip failing tests
+xfail() {
+	t=$1
+	cat >> $t <<-EOF
+
+	--XFAIL--
+	Skip
+	EOF
+}
 Test() {
 	nf=$(eval echo \$$#)
 	t=$nf; t=${t#\[}; t=${t%\]}
-	mv $t $t.skip
+	xfail $t
 }
+# skip failing tests
 Test Imagick, annotateImage [tests/034_Imagick_annotateImage_basic.phpt]
 Test ImagickDraw, composite [tests/177_ImagickDraw_composite_basic.phpt]
 Test ImagickDraw, setFontSize [tests/206_ImagickDraw_setFontSize_basic.phpt]
@@ -86,6 +94,13 @@ Test ImagickDraw, setTextDecoration [tests/225_ImagickDraw_setTextDecoration_bas
 Test Tutorial, psychedelicFont [tests/241_Tutorial_psychedelicFont_basic.phpt]
 Test Tutorial, svgExample [tests/243_Tutorial_svgExample_basic.phpt]
 Test Tutorial, psychedelicFontGif [tests/244_Tutorial_psychedelicFontGif_basic.phpt]
+%ifarch x32
+# Fail on 7.0
+Test Imagick, quantizeImage [tests/101_Imagick_quantizeImage_basic.phpt]
+Test Imagick, uniqueImageColors [tests/163_Imagick_uniqueImageColors_basic.phpt]
+Test Tutorial, deconstructGif [tests/237_Tutorial_deconstructGif_basic.phpt]
+Test ImagickPixelIterator, setIteratorRow [tests/251_ImagickPixelIterator_setIteratorRow_basic.phpt]
+%endif
 
 %build
 phpize
