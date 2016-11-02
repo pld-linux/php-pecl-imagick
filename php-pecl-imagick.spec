@@ -22,6 +22,9 @@ BuildRequires:	rpmbuild(macros) >= 1.650
 %if %{with tests}
 BuildRequires:	%{php_name}-cli
 BuildRequires:	%{php_name}-spl
+BuildRequires:	ImageMagick-coder-jpeg
+BuildRequires:	ImageMagick-coder-png
+BuildRequires:	ImageMagick-coder-tiff
 %endif
 %{?requires_php_extension}
 Requires(triggerpostun):	sed >= 4.0
