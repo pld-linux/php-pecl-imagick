@@ -5,15 +5,16 @@
 %define		php_name	php%{?php_suffix}
 %define		modname		imagick
 %define		status		stable
+%define		pre		RC1
 Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		%{php_name}-pecl-%{modname}
-Version:	3.4.2
-Release:	3
+Version:	3.4.3
+Release:	0.%{pre}.1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	3f80e35c2434636cdb5df01b221b3ffa
+Source0:	http://pecl.php.net/get/%{modname}-%{version}%{pre}.tgz
+# Source0-md5:	32042fc3043f013047927de21ff15a47
 Patch0:		skip_version_check.patch
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	%{php_name}-devel >= 4:5.3
@@ -62,7 +63,7 @@ To rozszerzenie ma w PECL status: %{status}.
 
 %prep
 %setup -qc
-mv %{modname}-%{version}/* .
+mv %{modname}-%{version}%{pre}/* .
 %patch0 -p1
 
 xfail() {
@@ -94,6 +95,9 @@ Test ImagickDraw, setTextDecoration [tests/225_ImagickDraw_setTextDecoration_bas
 Test Tutorial, psychedelicFont [tests/241_Tutorial_psychedelicFont_basic.phpt]
 Test Tutorial, svgExample [tests/243_Tutorial_svgExample_basic.phpt]
 Test Tutorial, psychedelicFontGif [tests/244_Tutorial_psychedelicFontGif_basic.phpt]
+Test Imagick, Imagick::exportImagePixels [tests/256_Imagick_exportImagePixels_basic.phpt]
+Test ImagickDraw, getTextDirection [tests/264_ImagickDraw_getTextDirection_basic.phpt]
+Test ImagickDraw, getFontResolution [tests/266_ImagickDraw_getFontResolution_basic.phpt]
 %ifarch x32
 # Fail on 7.0
 Test Imagick, quantizeImage [tests/101_Imagick_quantizeImage_basic.phpt]
