@@ -6,11 +6,12 @@
 %define		modname		imagick
 %define		status		stable
 %define		pre		RC1
+%define		rel		2
 Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		%{php_name}-pecl-%{modname}
 Version:	3.4.3
-Release:	0.%{pre}.1
+Release:	0.%{pre}.%{rel}
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}%{pre}.tgz
