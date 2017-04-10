@@ -5,17 +5,15 @@
 %define		php_name	php%{?php_suffix}
 %define		modname		imagick
 %define		status		stable
-%define		pre		RC1
-%define		rel		2
 Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		%{php_name}-pecl-%{modname}
 Version:	3.4.3
-Release:	0.%{pre}.%{rel}
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}%{pre}.tgz
-# Source0-md5:	32042fc3043f013047927de21ff15a47
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+# Source0-md5:	d0ee25c007cd2a28cefccc0b9ee63a28
 Patch0:		skip_version_check.patch
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	%{php_name}-devel >= 4:5.3
@@ -64,7 +62,7 @@ To rozszerzenie ma w PECL status: %{status}.
 
 %prep
 %setup -qc
-mv %{modname}-%{version}%{pre}/* .
+mv %{modname}-%{version}/* .
 %patch0 -p1
 
 xfail() {
