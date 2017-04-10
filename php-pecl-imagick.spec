@@ -17,7 +17,7 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		skip_version_check.patch
 URL:		http://pecl.php.net/package/imagick/
 BuildRequires:	%{php_name}-devel >= 4:5.3
-BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
+BuildRequires:	ImageMagick6-devel >= 1:6.2.4.0
 BuildRequires:	pkgconfig
 BuildRequires:	re2c
 BuildRequires:	rpmbuild(macros) >= 1.650
@@ -25,16 +25,16 @@ BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	%{php_name}-cli
 BuildRequires:	%{php_name}-pcre
 BuildRequires:	%{php_name}-spl
-BuildRequires:	ImageMagick-coder-jpeg
-BuildRequires:	ImageMagick-coder-png
-BuildRequires:	ImageMagick-coder-tiff
+BuildRequires:	ImageMagick6-coder-jpeg
+BuildRequires:	ImageMagick6-coder-png
+BuildRequires:	ImageMagick6-coder-tiff
 %endif
 %{?requires_php_extension}
 Requires(triggerpostun):	sed >= 4.0
 Requires:	%{php_name}-spl
-Suggests:	ImageMagick-coder-jpeg
-Suggests:	ImageMagick-coder-png
-Suggests:	ImageMagick-coder-tiff
+Suggests:	ImageMagick6-coder-jpeg
+Suggests:	ImageMagick6-coder-png
+Suggests:	ImageMagick6-coder-tiff
 Provides:	php(imagick) = %{version}
 Obsoletes:	php-pecl-imagick < 3.1.2-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
