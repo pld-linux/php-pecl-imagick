@@ -106,8 +106,15 @@ Test ImagickPixelIterator, setIteratorRow [tests/251_ImagickPixelIterator_setIte
 %endif
 
 %build
+# fake root, too annoying to patch
+install -d im-root/bin
+for p in MagickWand Wand; do
+	ln -snf %{_bindir}/${p}6-config im-root/bin/${p}-config
+done
+
 phpize
 %configure \
+	--with-imagick=`pwd`/im-root \
 	php_cv_cc_dashr=false
 
 %{__make} \
