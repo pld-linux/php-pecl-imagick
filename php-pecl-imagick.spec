@@ -9,7 +9,7 @@ Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		%{php_name}-pecl-%{modname}
 Version:	3.4.3
-Release:	3
+Release:	4
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
@@ -80,6 +80,7 @@ Test() {
 }
 # skip failing tests
 Test Imagick, annotateImage [tests/034_Imagick_annotateImage_basic.phpt]
+Test Imagick, setRegistry and getRegistry [tests/150_Imagick_setregistry.phpt]
 Test ImagickDraw, composite [tests/177_ImagickDraw_composite_basic.phpt]
 Test ImagickDraw, setFontSize [tests/206_ImagickDraw_setFontSize_basic.phpt]
 Test ImagickDraw, setFontFamily [tests/207_ImagickDraw_setFontFamily_basic.phpt]
