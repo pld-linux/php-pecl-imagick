@@ -5,17 +5,18 @@
 %define		php_name	php%{?php_suffix}
 %define		modname		imagick
 %define		status		stable
+%define		libversion	%(pkg-config --modversion MagickCore || echo ERROR)
 Summary:	%{modname} - PHP wrapper to the Image Magick Library
 Summary(pl.UTF-8):	%{modname} - PHP-owy wrapper do biblioteki Image Magick
 Name:		%{php_name}-pecl-%{modname}
 Version:	3.4.3
-Release:	5
+Release:	6
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+Source0:	https://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	d0ee25c007cd2a28cefccc0b9ee63a28
 Patch0:		skip_version_check.patch
-URL:		http://pecl.php.net/package/imagick/
+URL:		https://pecl.php.net/package/imagick
 BuildRequires:	%{php_name}-devel >= 4:5.3
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	pkgconfig
@@ -36,6 +37,7 @@ Suggests:	ImageMagick-coder-jpeg
 Suggests:	ImageMagick-coder-png
 Suggests:	ImageMagick-coder-tiff
 Provides:	php(imagick) = %{version}
+Provides:	php(lib-imagick) = %{libversion}
 Obsoletes:	php-pecl-imagick < 3.1.2-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
