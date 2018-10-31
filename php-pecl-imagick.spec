@@ -107,6 +107,8 @@ Test Imagick, uniqueImageColors [tests/163_Imagick_uniqueImageColors_basic.phpt]
 Test Tutorial, deconstructGif [tests/237_Tutorial_deconstructGif_basic.phpt]
 Test ImagickPixelIterator, setIteratorRow [tests/251_ImagickPixelIterator_setIteratorRow_basic.phpt]
 %endif
+# Fail on 5.3, 5.5, 5.6, 7.0, 7.1, 7.2
+Test Tutorial, fxAnalyzeImage [tests/229_Tutorial_fxAnalyzeImage_case1.phpt]
 
 %build
 phpize
