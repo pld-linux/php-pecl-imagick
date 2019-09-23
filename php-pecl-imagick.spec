@@ -17,15 +17,15 @@ Source0:	https://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	6d3a7048ab73b0fab931f28c484dbf76
 Patch0:		skip_version_check.patch
 URL:		https://pecl.php.net/package/imagick
+BuildRequires:	%{php_name}-cli
 BuildRequires:	%{php_name}-devel >= 4:5.3
+BuildRequires:	%{php_name}-pcre
+BuildRequires:	%{php_name}-spl
 BuildRequires:	ImageMagick-devel >= 1:6.2.4.0
 BuildRequires:	pkgconfig
 BuildRequires:	re2c
 BuildRequires:	rpmbuild(macros) >= 1.650
 %if %{with tests}
-BuildRequires:	%{php_name}-cli
-BuildRequires:	%{php_name}-pcre
-BuildRequires:	%{php_name}-spl
 BuildRequires:	ImageMagick-coder-jpeg
 BuildRequires:	ImageMagick-coder-png
 BuildRequires:	ImageMagick-coder-tiff
@@ -118,7 +118,6 @@ phpize
 %{__make} \
 	CFLAGS_CLEAN="%{rpmcflags}"
 
-%if %{with tests}
 %{__php} -n -q \
 	-d extension_dir=modules \
 %if "%php_major_version.%php_minor_version" < "7.4"
@@ -129,6 +128,7 @@ phpize
 	-m > modules.log
 grep %{modname} modules.log
 
+%if %{with tests}
 export NO_INTERACTION=1 REPORT_EXIT_STATUS=1 MALLOC_CHECK_=2
 %{__make} test \
 	PHP_EXECUTABLE=%{__php} \
