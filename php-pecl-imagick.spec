@@ -121,8 +121,10 @@ phpize
 %if %{with tests}
 %{__php} -n -q \
 	-d extension_dir=modules \
+%if "%php_major_version.%php_minor_version" < "7.4"
 	-d extension=%{php_extensiondir}/pcre.so \
 	-d extension=%{php_extensiondir}/spl.so \
+%endif
 	-d extension=%{modname}.so \
 	-m > modules.log
 grep %{modname} modules.log
@@ -130,7 +132,9 @@ grep %{modname} modules.log
 export NO_INTERACTION=1 REPORT_EXIT_STATUS=1 MALLOC_CHECK_=2
 %{__make} test \
 	PHP_EXECUTABLE=%{__php} \
+%if "%php_major_version.%php_minor_version" < "7.4"
 	PHP_TEST_SHARED_SYSTEM_EXTENSIONS="pcre spl" \
+%endif
 %endif
 
 %install
