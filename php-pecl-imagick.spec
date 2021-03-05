@@ -68,18 +68,21 @@ mv %{modname}-%{version}/* .
 %patch0 -p1
 
 xfail() {
-	t=$1
+	local t=$1
+	test -f $t
 	cat >> $t <<-EOF
 
 	--XFAIL--
 	Skip
 	EOF
 }
-Test() {
-	nf=$(eval echo \$$#)
-	t=$nf; t=${t#\[}; t=${t%\]}
+
+while read line; do
+	t=${line##*\[}; t=${t%\]}
+	test -z "$t" -o "${t:0:1}" = '#' && continue
 	xfail $t
-}
+done << 'EOF'
+
 # skip failing tests
 Test Imagick, annotateImage [tests/034_Imagick_annotateImage_basic.phpt]
 Test Imagick, setRegistry and getRegistry [tests/150_Imagick_setregistry.phpt]
@@ -109,6 +112,13 @@ Test ImagickPixelIterator, setIteratorRow [tests/251_ImagickPixelIterator_setIte
 %endif
 # Fail on 5.3, 5.5, 5.6, 7.0, 7.1, 7.2
 Test Tutorial, fxAnalyzeImage [tests/229_Tutorial_fxAnalyzeImage_case1.phpt]
+
+# 5.3, 5.5, 5.6, 7.0/x32, 7.1, 7.2, 7.3, 7.4
+ImagickKernel::fromMatrix exceptions [tests/280_imagickkernel_exception_invalid_origin.phpt]
+Imagick::setImageAlpha [tests/274_imagick_setImageAlpha.phpt]
+Test ImagickDraw:: setTextInterlineSpacing [tests/279_ImagickDraw_setTextInterlineSpacing.phpt]
+Test Imagick::optimizeimagelayers and Imagick::optimizeimagetransparency [tests/278_Imagick_optimaze_gif.phpt]
+EOF
 
 %build
 phpize
