@@ -139,6 +139,9 @@ Test importimagepixels [tests/010_importimagepixels.phpt]
 Testing clone keyword [tests/004_clone.phpt]
 Testing that cloned object does not affect the original [tests/012-clone-separation.phpt]
 Test thumbnail bestfit [tests/005_bestfit.phpt]
+%ifarch x32 %{ix86}
+Test localContrastImage [tests/260_localContrastImage.phpt]
+%endif
 %endif
 EOF
 
