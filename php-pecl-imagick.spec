@@ -118,6 +118,28 @@ ImagickKernel::fromMatrix exceptions [tests/280_imagickkernel_exception_invalid_
 Imagick::setImageAlpha [tests/274_imagick_setImageAlpha.phpt]
 Test ImagickDraw:: setTextInterlineSpacing [tests/279_ImagickDraw_setTextInterlineSpacing.phpt]
 Test Imagick::optimizeimagelayers and Imagick::optimizeimagetransparency [tests/278_Imagick_optimaze_gif.phpt]
+
+# php73/x32
+Test PHP bug #59378 writing to php://memory is incomplete [tests/bug59378.phpt]
+
+# php 7.4, 8.0
+%if "%php_major_version.%php_minor_version" == "7.4"
+Casting color and opacity to pixel [tests/003_cast_color_opacity.phpt]
+Different types of thumbnailing [tests/002_thumbnail.phpt]
+ImagickKernel::fromMatrix test [tests/145_imagickkernel_coverage.phpt]
+Imagick::resizeImage prevent 0 width/height images [tests/github_174.phpt]
+Test autoGammaImage [tests/263_autoGammaImage.phpt]
+Test compositeImageGravity [tests/261_compositeImageGravity.phpt]
+Test cropthumbnail [tests/006_cropthumbnail.phpt]
+Test filling thumbnail with color [tests/007_thumbnail_fill.phpt]
+Test for round issues [tests/064_cropThumbNailImage.phpt]
+Test Imagick::colorDecisionListImage [tests/277_Imagick_colorDecisionListImage.phpt]
+Test Imagick, progressMonitor [tests/127_Imagick_progressMonitor_basic.phpt]
+Test importimagepixels [tests/010_importimagepixels.phpt]
+Testing clone keyword [tests/004_clone.phpt]
+Testing that cloned object does not affect the original [tests/012-clone-separation.phpt]
+Test thumbnail bestfit [tests/005_bestfit.phpt]
+%endif
 EOF
 
 %build
