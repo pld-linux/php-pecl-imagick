@@ -31,7 +31,7 @@ BuildRequires:	ImageMagick-coder-png
 BuildRequires:	ImageMagick-coder-tiff
 %endif
 %{?requires_php_extension}
-Requires(triggerpostun):	sed >= 4.0
+Requires(postun):	sed >= 4.0
 Requires:	%{php_name}-spl
 Suggests:	ImageMagick-coder-jpeg
 Suggests:	ImageMagick-coder-png
