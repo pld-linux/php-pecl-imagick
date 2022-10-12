@@ -79,7 +79,10 @@ xfail() {
 
 while read line; do
 	t=${line##*\[}; t=${t%\]}
-	test -z "$t" -o "${t:0:1}" = '#' && continue
+	test -z "$t" && continue
+	case "$t" in
+		'#'*) continue;;
+	esac
 	xfail $t
 done << 'EOF'
 
