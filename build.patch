@@ -1,11 +1,15 @@
---- php53-pecl-imagick-3.7.0/imagick_file.c~	2022-01-11 16:23:47.000000000 +0100
-+++ php53-pecl-imagick-3.7.0/imagick_file.c	2025-05-09 12:08:50.347959587 +0200
-@@ -89,7 +89,7 @@ zend_bool php_imagick_is_virtual_format(
+--- imagick-3.7.0/imagick_file.c~	2022-01-11 16:23:47.000000000 +0100
++++ imagick-3.7.0/imagick_file.c	2025-05-09 22:34:45.060940546 +0200
+@@ -89,7 +89,11 @@ zend_bool php_imagick_is_virtual_format(
  static
  zend_bool php_imagick_is_url(const char *filename TSRMLS_DC)
  {
 -	const char *path_for_open;
++#if PHP_VERSION_ID < 50600
 +	char *path_for_open;
++#else
++        const char *path_for_open;
++#endif
  
  	if (php_stream_locate_url_wrapper(filename, &path_for_open, STREAM_LOCATE_WRAPPERS_ONLY TSRMLS_CC)) {
  		return 1;
